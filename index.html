@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="width=device-width,initial-scale=1.0" name="viewport">
+        <meta charset="utf-8">
+        <title>Web UI</title>
+        <link rel="stylesheet" href="./assets/font/iconfont.css">
+        <link rel="stylesheet" href="./assets/css/index.css">
+        <script type="text/javascript">
+            window._AMapSecurityConfig = {
+                securityJsCode:'58c3f5bbb65814a7b3eb4cd43c76d4c4',
+            }
+    </script>
+        <script type="text/javascript"src="https://webapi.amap.com/maps?v=1.4.15&key=	dc0b75f959e70d4df09c0339a13f6bb2&callback=init"></script>
+        <style>
+            #map-container {
+                width: 100%;
+                height: 800px;
+                /* height: 600px; */
+            }
+            #panel {
+            width: 100%;
+            height: 400px;
+            overflow: auto;
+            background-color: #fff;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+                <div class="sidebar-nav">
+                    <span id="btn-fold-in" class="iconfont icon-zhedie1 fold"></span>
+                    <div class="history">
+                        <div class="today"></div>
+                        <div class="yesterday"></div>
+                        <div class="last-7days"></div>
+                        <div class="last-30days"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-log">
+                    <div class="content-nav">
+                        <span id="btn-fold-out" class="iconfont icon-zhedie2 fold"></span>
+                        <select id="selectLLM">
+                            <option value="tagging_pure">普通分析情感模型</option>
+                            <option value="tagging">增加In-Context-Learning的分析情感模型</option>
+                        </select>
+                    </div>
+                    <div id="res-log">
+                        <h3>分析句子表达的情感</h3> 
+                        <div id="map-container"></div>
+                        <div id="panel"></div>
+                    </div>
+                   
+                </div>
+                <!-- <div id="map-container"></div> -->
+                <div class="content-footer">
+                    <div class="input-chat-wrapper">
+                        <span id="input-attachment" class="iconfont icon-fujian"></span>
+                        <input id="input-chat" placeholder="请“大模型”发送消息">
+                        <span id="input-send" class="iconfont icon-shangchuan"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script src="./index.js"></script>
+<script>
+const today = document.querySelector('.today');
+const yesterday = document.querySelector('.yesterday');
+const last7days = document.querySelector('.last-7days');
+const last30days = document.querySelector('.last-30days');
+
+today.innerHTML = `
+    <div class="title">今天</div>
+    <div class="msg-item">The role of scientific data collection in regulatory processes is at stake.</div>
+    <div class="msg-item">The role of scientific .</div>
+    <div class="msg-item">The role of scientifiory processes is at stake.</div>
+`
+
+yesterday.innerHTML = `
+    <div class="title">昨天</div>
+    <div class="msg-item">The role of scientific data collection in regulatory processes is at stake.</div>
+    <div class="msg-item">The role of scientific .</div>
+    <div class="msg-item">The role of scientifiory processes is at stake.</div>
+`
+
+last7days.innerHTML = `
+    <div class="title">最近7天</div>
+    <div class="msg-item">The role of scientific data collection in regulatory processes is at stake.</div>
+    <div class="msg-item">The role of scientific .</div>
+    <div class="msg-item">The role of scientifiory processes is at stake.</div>
+    <div class="msg-item">The role of scientific data collection in regulatory processes is at stake.</div>
+`
+
+last30days.innerHTML = `
+    <div class="title">最近30天</div>
+    <div class="msg-item">The role of scientific data collection in regulatory processes is at stake.</div>
+    <div class="msg-item">The role of scientific .</div>
+    <div class="msg-item">The role of scientifiory processes is at stake.</div>
+`
+</script>
